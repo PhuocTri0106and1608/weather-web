@@ -1,0 +1,37 @@
+{
+  "name": "weather-web",
+  "description": "Weather Web",
+  "author": "phuoctri",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env BUILD_MODE=dev vite --host",
+    "build": "cross-env BUILD_MODE=production vite build --base=./",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.12.0",
+    "@emotion/styled": "^11.12.0",
+    "@mui/icons-material": "^5.16.4",
+    "@mui/material": "^5.16.4",
+    "axios": "^1.7.2",
+    "cross-env": "^7.0.3",
+    "lodash": "^4.17.21",
+    "material-ui-confirm": "^3.0.16",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-toastify": "^10.0.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "vite": "^5.3.4",
+    "vite-plugin-svgr": "^3.2.0"
+  }
+}
