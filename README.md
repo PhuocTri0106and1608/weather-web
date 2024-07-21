@@ -19,6 +19,7 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 You can start editing the page by modifying `pages/Dashboard.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`font`](https://fonts.google.com/specimen/Rubik?query=Rubik) to automatically optimize and load Inter, a custom Google Font.
+The demo in [https://weather-m2e7izncm-phuoctris-projects.vercel.app/](https://weather-m2e7izncm-phuoctris-projects.vercel.app/)
 
 ## Learn More
 
