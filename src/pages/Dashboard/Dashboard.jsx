@@ -68,7 +68,7 @@ function Dashboard() {
         backgroundColor: (theme) => theme.palette.secondary.main
       }}>
         <CircularProgress />
-        <Typography>Loading Board...</Typography>
+        <Typography>Loading...</Typography>
       </Box>
     )
   }
