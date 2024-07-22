@@ -26,5 +26,6 @@ The demo in [https://weather-m2e7izncm-phuoctris-projects.vercel.app/](https://w
 
 To learn more about React.js, take a look at the following resources:
 
+- [Weather API Documentation](https://www.weatherapi.com/docs/) - learn about Weather API API.
 - [React.js Documentation](https://legacy.reactjs.org/docs) - learn about React.js features and API.
 - [Learn React.js](https://legacy.reactjs.org/tutorial) - an interactive React.js tutorial.
