@@ -6,12 +6,19 @@ import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 
-function Header({ email, createNewUser }) {
+function Header({ email, createNewUser, verifyEmail }) {
   const [openEmailForm, setOpenEmailForm] = useState(false)
+  const [openOTPForm, setOpenOTPForm] = useState(false)
   const toggleOpenEmailForm = () => setOpenEmailForm(!openEmailForm)
+  const toggleOpenOTPForm = () => setOpenOTPForm(!openOTPForm)
   const addEmail = (mail) => {
     createNewUser(mail)
     toggleOpenEmailForm()
+    toggleOpenOTPForm()
+  }
+  const verify = (otp) => {
+    verifyEmail(otp)
+    toggleOpenOTPForm()
   }
   return (
     <Box px={7} sx={{
@@ -20,6 +27,7 @@ function Header({ email, createNewUser }) {
       alignItems: 'center',
       backgroundColor: (theme) => theme.palette.primary.main
     }}>
+      {/* Add Email Dialog */}
       <Dialog
         open={openEmailForm}
         onClose={toggleOpenEmailForm}
@@ -48,7 +56,7 @@ function Header({ email, createNewUser }) {
             autoFocus
             required
             margin="dense"
-            id="name"
+            id="email"
             name="email"
             label="Email Address"
             type="email"
@@ -58,6 +66,48 @@ function Header({ email, createNewUser }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={toggleOpenEmailForm}>Cancel</Button>
+          <Button type="submit">Submit</Button>
+        </DialogActions>
+      </Dialog>
+      {/* Submit OTP Dialog */}
+      <Dialog
+        open={openOTPForm}
+        onClose={toggleOpenOTPForm}
+        PaperProps={{
+          component: 'form',
+          onSubmit: (event) => {
+            event.preventDefault()
+            const formData = new FormData(event.currentTarget)
+            const formJson = Object.fromEntries(formData.entries())
+            const otp = formJson.OTP
+            verify(otp)
+          }
+        }}
+      >
+        <DialogTitle >Submit OTP</DialogTitle>
+        <DialogContent >
+          <Typography variant='span'
+            sx={{
+              fontSize: '0.8rem',
+              color: 'black',
+              textAlign: 'center'
+            }}>
+            Next, please enter OTP which be sent to your email address here!
+          </Typography>
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="otp"
+            name="OTP"
+            label="OTP"
+            type="number"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={toggleOpenOTPForm}>Cancel</Button>
           <Button type="submit">Submit</Button>
         </DialogActions>
       </Dialog>

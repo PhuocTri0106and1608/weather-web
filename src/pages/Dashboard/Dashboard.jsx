@@ -5,7 +5,7 @@ import { Box, CircularProgress, Container, Typography } from '@mui/material'
 import Header from '~/components/Header/Header'
 import SearchCity from './SearchCity/SearchCity'
 import Weather from './Weather/Weather'
-import { createNewUserAPI, fetchWeatherWithinEmailAPI, fetchWeatherWithoutEmailAPI } from '~/apis'
+import { createNewUserAPI, fetchWeatherWithinEmailAPI, fetchWeatherWithoutEmailAPI, verifyEmailAPI } from '~/apis'
 
 function Dashboard() {
   const [data, setData] = useState(null)
@@ -34,7 +34,15 @@ function Dashboard() {
     try {
       const user = await createNewUserAPI({ email })
       setUserId(user?._id)
-      toast.success(`Create new user by email ${email} successfully!`)
+      toast.success(`Create new user by email ${email} successfully! And new OTP was send to your email!`)
+    } catch (error) {
+      toast.error(error.response.data.message)
+    }
+  }
+  const verifyEmail = async (OTP) => {
+    try {
+      const result = await verifyEmailAPI(userId, OTP)
+      toast.success(result.message)
     } catch (error) {
       toast.error(error.response.data.message)
     }
@@ -75,7 +83,7 @@ function Dashboard() {
   return (
     <Container disableGutters maxWidth={false}
       sx={{ backgroundColor: (theme) => theme.palette.secondary.main }}>
-      <Header email={emailAddress} createNewUser={createNewUser}/>
+      <Header email={emailAddress} createNewUser={createNewUser} verifyEmail={verifyEmail}/>
       <Box sx={{
         display: 'flex',
         flexWrap: 'wrap',
