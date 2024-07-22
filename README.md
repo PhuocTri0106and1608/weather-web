@@ -20,6 +20,8 @@ You can start editing the page by modifying `pages/Dashboard.tsx`. The page auto
 
 This project uses [`font`](https://fonts.google.com/specimen/Rubik?query=Rubik) to automatically optimize and load Inter, a custom Google Font.
 
+The demo in [https://weather-m2e7izncm-phuoctris-projects.vercel.app/](https://weather-m2e7izncm-phuoctris-projects.vercel.app/)
+
 ## Learn More
 
 To learn more about React.js, take a look at the following resources:
